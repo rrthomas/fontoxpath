@@ -27,26 +27,6 @@ export default class CorpusBasedFuzzer implements IFuzzer {
 		);
 	}
 
-	isExpectedError(error: Error): boolean {
-		// Not interested in static errors, we're looking for crashes
-		if (error.message.startsWith('XPST')) {
-			return true;
-		}
-
-		// Not interested in type errors, we're looking for crashes
-		if (error.message.startsWith('XPTY')) {
-			return true;
-		}
-
-		// Not interested in function errors, we're looking for crashes
-		if (error.message.startsWith('FORG')) {
-			return true;
-		}
-
-		// Did not expect error
-		return false;
-	}
-
 	prepareCase(): FuzzCase {
 		// Select an expression from the corpus
 		let expression = this.corpus[rand(this.corpus.length)];

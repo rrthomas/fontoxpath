@@ -132,7 +132,7 @@ export default class Engine<TFuzzer extends IFuzzer> {
 				fuzzCase.run();
 			} catch (error) {
 				// Test if this is an expected error
-				if (fuzzer.isExpectedError(error)) {
+				if (fuzzCase.isExpectedError(error)) {
 					continue;
 				}
 
