@@ -67,7 +67,7 @@ export default class Engine<TFuzzer extends IFuzzer> {
 
 						// Print the error
 						process.stdout.write(
-							`\n\n!!! \x1b[31mCrash found\x1b[0m !!!\nSelector: ${msg.selector}\nLanguage: ${msg.language}\n${msg.stack}\n\n`
+							`\n\n!!! \x1b[31mCrash found\x1b[0m !!!\nSelector: \`${msg.selector}\`\nLanguage: \`${msg.language}\`\n\`\`\`\n${msg.stack}\n\`\`\`\n\n`
 						);
 						break;
 					}
