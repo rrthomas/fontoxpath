@@ -25,6 +25,7 @@ export default class Engine<TFuzzer extends IFuzzer> {
 		let workersOnline = 0;
 		let totalCases = 0;
 		const uniqueStacks = new Set();
+		const argv = process.argv.slice(2);
 
 		// Start all the workers
 		const numOfCpus = os.cpus().length;
@@ -37,6 +38,7 @@ export default class Engine<TFuzzer extends IFuzzer> {
 				require(require('worker_threads').workerData.runThisFileInTheWorker);
 				`,
 				{
+					argv,
 					env: {
 						TS_NODE_PROJECT: './fuzzers/tsconfig.json'
 					},

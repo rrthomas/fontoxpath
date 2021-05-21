@@ -3,17 +3,27 @@ import { mutateCharactersInPlace, mutateString, rand, randomLanguage } from 'mut
 import { sync } from 'slimdom-sax-parser';
 
 /**
+ * Defines the interface for loading a fuzzing corpus.
+ */
+export interface ICorpusLoader {
+	name: string;
+	get(): string[];
+}
+
+/**
  * Implements a corpus-based {@link Fuzzer}.
  */
 export default class CorpusBasedFuzzer implements IFuzzer {
 	private corpus: string[];
 	private documentNode: any;
+	private loader: ICorpusLoader;
 
-	constructor(corpus: string[]) {
-		this.corpus = corpus;
+	constructor(loader: ICorpusLoader) {
+		this.loader = loader;
 	}
 
 	globalInit(): void {
+		this.corpus = this.loader.get();
 		this.documentNode = sync(
 			'<xml> \
 			<title>xpath.playground.fontoxml.com</title> \

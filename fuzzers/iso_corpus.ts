@@ -1,4 +1,6 @@
-export default [
+import { ICorpusLoader } from "corpus_based_fuzzer";
+
+const CORPUS = [
 	"as:is-content-chunk(.)",
 	"self::*[fonto:is-on-review-route()]",
 	"self::Q{}table or self::Q{}thead or self::Q{}tbody or self::Q{}tfoot or self::Q{}tr or self::Q{}td or self::Q{}th or self::Q{}colgroup or self::Q{}col",
@@ -230,3 +232,10 @@ export default [
 	"ancestor-or-self::*[self::list and @list-type = 'alpha-lower'][1]",
 	"ancestor-or-self::*[self::list and @list-type = 'dash'][1]"
 ];
+export default new class ISOCorpusLoader implements ICorpusLoader {
+	name: string = 'iso';
+
+	get(): string[] {
+		return CORPUS;
+	}
+};
