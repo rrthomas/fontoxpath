@@ -394,7 +394,10 @@ function createAsserterForJsCodegen(baseUrl: string, assertNode, language) {
 				});
 				if (compiled.isAstAccepted === true) {
 					// tslint:disable-next-line
-					const fn = new Function(compiled.code) as CompiledXPathFunction<Node, ReturnType.BOOLEAN>;
+					const fn = new Function(compiled.code) as CompiledXPathFunction<
+						Node,
+						ReturnType.BOOLEAN
+					>;
 					chai.assert.isTrue(
 						executeJavaScriptCompiledXPath(fn, contextNode),
 						`Expected XPath ${xpath} to resolve to true`
@@ -429,7 +432,10 @@ function createAsserterForJsCodegen(baseUrl: string, assertNode, language) {
 
 				if (compiled.isAstAccepted === true) {
 					// tslint:disable-next-line
-					const fn = new Function(compiled.code) as CompiledXPathFunction<Node, ReturnType.NODES>;
+					const fn = new Function(compiled.code) as CompiledXPathFunction<
+						Node,
+						ReturnType.NODES
+					>;
 					chai.assert.equal(
 						executeJavaScriptCompiledXPath(fn, contextNode).length,
 						parseInt(equalWith, 10),
@@ -450,7 +456,10 @@ function createAsserterForJsCodegen(baseUrl: string, assertNode, language) {
 				});
 				if (compiled.isAstAccepted === true) {
 					// tslint:disable-next-line
-					const fn = new Function(compiled.code) as CompiledXPathFunction<Node, ReturnType.NODES>;
+					const fn = new Function(compiled.code) as CompiledXPathFunction<
+						Node,
+						ReturnType.NODES
+					>;
 					chai.assert.deepEqual(
 						executeJavaScriptCompiledXPath(fn, contextNode),
 						evaluateXPathToNodes(equalWith, contextNode, null, variablesInScope, {
@@ -473,7 +482,10 @@ function createAsserterForJsCodegen(baseUrl: string, assertNode, language) {
 				});
 				if (compiled.isAstAccepted === true) {
 					// tslint:disable-next-line
-					const fn = new Function(compiled.code) as CompiledXPathFunction<Node, ReturnType.NODES>;
+					const fn = new Function(compiled.code) as CompiledXPathFunction<
+						Node,
+						ReturnType.NODES
+					>;
 					chai.assert.equal(
 						executeJavaScriptCompiledXPath(fn, contextNode).length,
 						0,
@@ -490,7 +502,10 @@ function createAsserterForJsCodegen(baseUrl: string, assertNode, language) {
 				});
 				if (compiled.isAstAccepted === true) {
 					// tslint:disable-next-line
-					const fn = new Function(compiled.code) as CompiledXPathFunction<Node, ReturnType.BOOLEAN>;
+					const fn = new Function(compiled.code) as CompiledXPathFunction<
+						Node,
+						ReturnType.BOOLEAN
+					>;
 					chai.assert.isFalse(
 						executeJavaScriptCompiledXPath(fn, contextNode),
 						`Expected XPath ${xpath} to resolve to false`
@@ -509,7 +524,10 @@ function createAsserterForJsCodegen(baseUrl: string, assertNode, language) {
 				});
 				if (compiled.isAstAccepted === true) {
 					// tslint:disable-next-line
-					const fn = new Function(compiled.code) as CompiledXPathFunction<Node, ReturnType.NODES>;
+					const fn = new Function(compiled.code) as CompiledXPathFunction<
+						Node,
+						ReturnType.NODES
+					>;
 					chai.assert.equal(
 						executeJavaScriptCompiledXPath(fn, contextNode).length,
 						expectedCount,
@@ -554,7 +572,10 @@ function createAsserterForJsCodegen(baseUrl: string, assertNode, language) {
 				});
 				if (compiled.isAstAccepted === true) {
 					// tslint:disable-next-line
-					const fn = new Function(compiled.code) as CompiledXPathFunction<Node, ReturnType.NODES>;
+					const fn = new Function(compiled.code) as CompiledXPathFunction<
+						Node,
+						ReturnType.NODES
+					>;
 					const results = executeJavaScriptCompiledXPath(fn, contextNode);
 					chai.assert(
 						evaluateXPathToBoolean(
