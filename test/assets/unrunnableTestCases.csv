@@ -450,13 +450,7 @@ fn-function-lookup-021,AssertionError: Expected XPath exists(function-lookup(fn:
 fn-function-lookup-022,Error: XPTY0004: Expected base expression of a function call to evaluate to a sequence of single function item
 fn-function-lookup-023,AssertionError: Expected XPath exists(function-lookup(fn:QName('http://www.w3.org/2005/xpath-functions', 'document-uri'), 1)) to resolve to true: expected false to be true
 fn-function-lookup-024,Error: XPTY0004: Expected base expression of a function call to evaluate to a sequence of single function item
-fn-function-lookup-025,AssertionError: Expected XPath exists(function-lookup(fn:QName('http://www.w3.org/2005/xpath-functions', 'error'), 0)) to resolve to true: expected false to be true
-fn-function-lookup-027,AssertionError: Expected XPath exists(function-lookup(fn:QName('http://www.w3.org/2005/xpath-functions', 'error'), 1)) to resolve to true: expected false to be true
-fn-function-lookup-028,AssertionError: expected [Function] to throw error matching /XXXX0000/ but got 'XPTY0004: Expected base expression of a function call to evaluate to a sequence of single function item'
-fn-function-lookup-029,AssertionError: Expected XPath exists(function-lookup(fn:QName('http://www.w3.org/2005/xpath-functions', 'error'), 2)) to resolve to true: expected false to be true
-fn-function-lookup-030,AssertionError: expected [Function] to throw error matching /XXXX0000/ but got 'XPTY0004: Expected base expression of a function call to evaluate to a sequence of single function item'
-fn-function-lookup-031,AssertionError: Expected XPath exists(function-lookup(fn:QName('http://www.w3.org/2005/xpath-functions', 'error'), 3)) to resolve to true: expected false to be true
-fn-function-lookup-032,AssertionError: expected [Function] to throw error matching /XXXX0000/ but got 'XPTY0004: Expected base expression of a function call to evaluate to a sequence of single function item'
+fn-function-lookup-032,AssertionError: expected [Function] to throw error matching /XXXX0000/ but got 'Not implemented: Using an error object in error is not supported'
 fn-function-lookup-053,AssertionError: Expected XPath exists(function-lookup(fn:QName('http://www.w3.org/2005/xpath-functions', 'format-integer'), 2)) to resolve to true: expected false to be true
 fn-function-lookup-054,Error: XPTY0004: Expected base expression of a function call to evaluate to a sequence of single function item
 fn-function-lookup-055,AssertionError: Expected XPath exists(function-lookup(fn:QName('http://www.w3.org/2005/xpath-functions', 'format-integer'), 3)) to resolve to true: expected false to be true
@@ -1499,6 +1493,7 @@ xs-error-015,Error: No selector counterpart for: typedFunctionTest.
 xs-error-016,Error: No selector counterpart for: typedFunctionTest.
 xs-error-020,Error: XPST0003: Unable to parse: "(declare function local:identity($arg as xs:error?)             {               $arg             };        local:identity(())       ) => empty()". Expected " ", "!", "!=", "(", "(:", ")", "*", "+", ",", "-", "/", "//", "<", "<<", "<=", "=", "=>", ">", ">=", ">>", "[", "\n", "\r", "\t", "and", "cast", "castable", "div", "eq", "except", "ge", "gt", "idiv", "instance", "intersect", "is", "le", "lt", "mod", "ne", "or", "to", "treat", "union", "|", or "||" but "f" found. (declare [Error is around here]function local:identity($arg as xs:error?)             {               $arg             };        local:identity(())       ) => empty()
 xs-error-031,AssertionError: Expected executing the XPath "for $x as xs:error in (1, 2, 3) return $x" to resolve to one of the expected results, but got AssertionError: expected [Function] to throw an error.
+xs-error-047,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'No selector counterpart for: treatExpr.'
 xs-error-048,AssertionError: expected [Function] to throw error matching /XPDY0050/ but got 'No selector counterpart for: treatExpr.'
 xs-error-049,Error: No selector counterpart for: treatExpr.
 xs-float-004,AssertionError: expected [Function] to throw an error
@@ -2706,8 +2701,6 @@ K-FunctionProlog-37,AssertionError: expected [Function] to throw an error
 K-FunctionProlog-38,AssertionError: expected [Function] to throw an error
 K-FunctionProlog-46,AssertionError: Expected executing the XPath "         declare function local:myFunction($arg as empty-sequence()) { $arg };         local:myFunction(1)" to resolve to one of the expected results, but got AssertionError: expected [Function] to throw an error, AssertionError: expected [Function] to throw an error.
 K-FunctionProlog-50,AssertionError: expected [Function] to throw an error
-K-FunctionProlog-53,AssertionError: Expected executing the XPath "declare namespace my = "http://example.com/MyNamespace/";         declare variable $my:error-qname := QName("http:example.org/", "prefix:ncname");         declare function my:error($choice, $msg as xs:string) as empty-sequence() { if($choice) then error($my:error-qname, concat('No luck: ', $msg)) else () };         empty((my:error(false(), "msg"), my:error(false(), "The message")))" to resolve to one of the expected results, but got Error: XPST0017: Function error with arity of 2 not registered. Did you mean "Q{http://www.w3.org/2001/XMLSchema}error (xs:anyAtomicType?)"?, AssertionError: expected [Function] to throw error matching /XPST0005/ but got 'XPST0017: Function error with arity of 2 not registered. Did you mean "Q{http://www.w3.org/2001/XMLSchema}error (xs:anyAtomicType?)"?'.
-K-FunctionProlog-56,AssertionError: Expected executing the XPath "declare namespace my = "http://example.com/MyNamespace/";         declare variable $my:error-qname := QName("http://example.com/MyErrorNS", "my:qName");         declare function my:error($choice, $msg as xs:string) as empty-sequence() { if($choice) then error($my:error-qname, concat('No luck: ', $msg)) else () };         empty((my:error(false(), "msg"), my:error(false(), "The message")))" to resolve to one of the expected results, but got Error: XPST0017: Function error with arity of 2 not registered. Did you mean "Q{http://www.w3.org/2001/XMLSchema}error (xs:anyAtomicType?)"?, AssertionError: expected [Function] to throw error matching /XPST0005/ but got 'XPST0017: Function error with arity of 2 not registered. Did you mean "Q{http://www.w3.org/2001/XMLSchema}error (xs:anyAtomicType?)"?'.
 K-FunctionProlog-57,AssertionError: expected [Function] to throw error matching /XPST0051/ but got 'XPST0081: Invalid prefix for input :none'
 K-FunctionProlog-60,AssertionError: expected [Function] to throw error matching /XPST0008/ but got 'XQDY0054: The variable arg is declared but not in scope.'
 K-FunctionProlog-61,AssertionError: expected [Function] to throw error matching /XPST0008/ but got 'XQDY0054: The variable arg3 is declared but not in scope.'
@@ -2759,6 +2752,8 @@ K-SeqExprInstanceOf-39,Error: No selector counterpart for: voidSequenceType.
 K-SeqExprInstanceOf-40,Error: No selector counterpart for: voidSequenceType.
 K-SeqExprInstanceOf-41,Error: No selector counterpart for: voidSequenceType.
 K-SeqExprInstanceOf-42,Error: No selector counterpart for: voidSequenceType.
+K-SeqExprInstanceOf-58,AssertionError: Expected executing the XPath "error() instance of empty-sequence()" to resolve to one of the expected results, but got Error: No selector counterpart for: voidSequenceType., AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'No selector counterpart for: voidSequenceType.'.
+K-SeqExprInstanceOf-59,AssertionError: Expected executing the XPath "(error(), 1) instance of empty-sequence()" to resolve to one of the expected results, but got Error: No selector counterpart for: voidSequenceType., AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'No selector counterpart for: voidSequenceType.'.
 K2-SeqExprInstanceOf-98,Error: No selector counterpart for: voidSequenceType.
 LetExpr004,Error: FOCA0003: can not cast 92233720368547758 to xs:integer, it is out of bounds for JavaScript numbers.
 LetExpr005,Error: FOCA0003: can not cast -92233720368547758 to xs:integer, it is out of bounds for JavaScript numbers.
@@ -2803,13 +2798,7 @@ function-literal-021,Error: XPST0017: Function Q{http://www.w3.org/2005/xpath-fu
 function-literal-022,Error: XPST0017: Function Q{http://www.w3.org/2005/xpath-functions}document-uri with arity of 0 not registered. No similar functions found.
 function-literal-023,Error: XPST0017: Function Q{http://www.w3.org/2005/xpath-functions}document-uri with arity of 1 not registered. No similar functions found.
 function-literal-024,Error: XPST0017: Function Q{http://www.w3.org/2005/xpath-functions}document-uri with arity of 1 not registered. No similar functions found.
-function-literal-025,Error: XPST0017: Function Q{http://www.w3.org/2005/xpath-functions}error with arity of 0 not registered. Did you mean "Q{http://www.w3.org/2001/XMLSchema}error (xs:anyAtomicType?)"?
-function-literal-027,Error: XPST0017: Function Q{http://www.w3.org/2005/xpath-functions}error with arity of 1 not registered. Did you mean "Q{http://www.w3.org/2001/XMLSchema}error (xs:anyAtomicType?)"?
-function-literal-028,AssertionError: expected [Function] to throw error matching /XXXX0000/ but got 'XPST0017: Function Q{http://www.w3.org/2005/xpath-functions}error with arity of 1 not registered. Did you mean "Q{http://www.w3.org/2001/XMLSchema}error (xs:anyAtomicType?)"?'
-function-literal-029,Error: XPST0017: Function Q{http://www.w3.org/2005/xpath-functions}error with arity of 2 not registered. Did you mean "Q{http://www.w3.org/2001/XMLSchema}error (xs:anyAtomicType?)"?
-function-literal-030,AssertionError: expected [Function] to throw error matching /XXXX0000/ but got 'XPST0017: Function Q{http://www.w3.org/2005/xpath-functions}error with arity of 2 not registered. Did you mean "Q{http://www.w3.org/2001/XMLSchema}error (xs:anyAtomicType?)"?'
-function-literal-031,Error: XPST0017: Function Q{http://www.w3.org/2005/xpath-functions}error with arity of 3 not registered. Did you mean "Q{http://www.w3.org/2001/XMLSchema}error (xs:anyAtomicType?)"?
-function-literal-032,AssertionError: expected [Function] to throw error matching /XXXX0000/ but got 'XPST0017: Function Q{http://www.w3.org/2005/xpath-functions}error with arity of 3 not registered. Did you mean "Q{http://www.w3.org/2001/XMLSchema}error (xs:anyAtomicType?)"?'
+function-literal-032,AssertionError: expected [Function] to throw error matching /XXXX0000/ but got 'Not implemented: Using an error object in error is not supported'
 function-literal-053,Error: XPST0017: Function Q{http://www.w3.org/2005/xpath-functions}format-integer with arity of 2 not registered. No similar functions found.
 function-literal-054,Error: XPST0017: Function Q{http://www.w3.org/2005/xpath-functions}format-integer with arity of 2 not registered. No similar functions found.
 function-literal-055,Error: XPST0017: Function Q{http://www.w3.org/2005/xpath-functions}format-integer with arity of 3 not registered. No similar functions found.
@@ -4009,105 +3998,3 @@ fo-test-array-subarray-006,Error: FOAY0001: subarray start out of bounds.
 fo-test-array-subarray-007,Error: FOAY0001: subarray start out of bounds.
 fo-test-array-fold-right-003,AssertionError: Expected XPath          array:fold-right([1,2,3], [], function($x, $y){[$x, $y]})        to (deep equally) resolve to [1, [2, [3, []]]]: expected false to be true
 fo-test-array-sort-002,Error: XPST0017: Function array:sort with arity of 3 not registered. Did you mean "Q{http://www.w3.org/2005/xpath-functions/array}sort (array(*))", "Q{http://www.w3.org/2001/XMLSchema}short (xs:anyAtomicType?)" or "Q{http://www.w3.org/2005/xpath-functions/math}sqrt (xs:double?)"?
-fn-error-1,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-4,AssertionError: expected [Function] to throw error matching /FOCH0004/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-6,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Not implemented: Using an error object in error is not supported'
-fn-error-7,AssertionError: expected [Function] to throw error matching /FODT0001/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-8,AssertionError: expected [Function] to throw error matching /FORG0009/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-9,AssertionError: expected [Function] to throw error matching /FOTY0012/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-10,AssertionError: expected [Function] to throw error matching /SENR0001/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-11,AssertionError: expected [Function] to throw error matching /SEPM0004/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-12,AssertionError: expected [Function] to throw error matching /SEPM0009/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-13,AssertionError: expected [Function] to throw error matching /SEPM0010/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-14,AssertionError: expected [Function] to throw error matching /SEPM0016/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-15,AssertionError: expected [Function] to throw error matching /SERE0003/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-16,AssertionError: expected [Function] to throw error matching /SERE0005/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-17,AssertionError: expected [Function] to throw error matching /SERE0006/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-18,AssertionError: expected [Function] to throw error matching /SERE0008/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-19,AssertionError: expected [Function] to throw error matching /SERE0012/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-20,AssertionError: expected [Function] to throw error matching /SERE0014/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-22,AssertionError: expected [Function] to throw error matching /SESU0007/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-23,AssertionError: expected [Function] to throw error matching /SESU0011/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-25,AssertionError: expected [Function] to throw error matching /XPDY0002/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-26,AssertionError: expected [Function] to throw error matching /XPST0010/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-27,AssertionError: expected [Function] to throw error matching /XPST0080/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-28,AssertionError: expected [Function] to throw error matching /XPTY0018/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-29,AssertionError: expected [Function] to throw error matching /XQDY0027/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-30,AssertionError: expected [Function] to throw error matching /XQDY0061/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-31,AssertionError: expected [Function] to throw error matching /XQDY0084/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-32,AssertionError: expected [Function] to throw error matching /XQST0009/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-33,AssertionError: expected [Function] to throw error matching /XQST0012/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-34,AssertionError: expected [Function] to throw error matching /XQST0013/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-35,AssertionError: expected [Function] to throw error matching /XQST0016/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-36,AssertionError: expected [Function] to throw error matching /XQST0035/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-37,AssertionError: expected [Function] to throw error matching /XQST0036/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-38,AssertionError: expected [Function] to throw error matching /XQST0046/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-39,AssertionError: expected [Function] to throw error matching /XQST0047/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-40,AssertionError: expected [Function] to throw error matching /XQST0048/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-41,AssertionError: expected [Function] to throw error matching /XQST0054/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-42,AssertionError: expected [Function] to throw error matching /XQST0055/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-43,AssertionError: expected [Function] to throw error matching /XQST0057/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-44,AssertionError: expected [Function] to throw error matching /XQST0058/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-45,AssertionError: expected [Function] to throw error matching /XQST0060/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-46,AssertionError: expected [Function] to throw error matching /XQST0073/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-47,AssertionError: expected [Function] to throw error matching /XQST0075/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-48,AssertionError: expected [Function] to throw error matching /XQST0076/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-49,AssertionError: expected [Function] to throw error matching /XQST0079/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-50,AssertionError: expected [Function] to throw error matching /XQST0087/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-error-51,AssertionError: expected [Function] to throw error matching /XQTY0030/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-ErrorFunc-4a,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-ErrorFunc-5,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-ErrorFunc-8,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-ErrorFunc-10,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-cbcl-error-021,AssertionError: Expected executing the XPath "typeswitch ( fn:error() ) case xs:integer return true() default return false()" to resolve to one of the expected results, but got Error: XPST0003: Unable to parse: "typeswitch ( fn:error() ) case xs:integer return true() default return false()". Expected " ", "(:", "\n", "\r", "\t", or "function" but "f" found. typeswitch ( [Error is around here]fn:error() ) case xs:integer return true() default return false(), AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'XPST0003: Unable to parse: "typeswitch ( fn:error() ) case xs:integer return true() default return false()".\nExpected " ", "(:", "\\n", "\\r", "\\t", or "function" but "f" found.\ntypeswitch ( [Error is around here]fn:error() ) case xs:integer return true() default return false()'.
-cbcl-error-022,AssertionError: Expected executing the XPath "typeswitch ( fn:error() ) case xs:integer return true() default return false()" to resolve to one of the expected results, but got Error: XPST0003: Unable to parse: "typeswitch ( fn:error() ) case xs:integer return true() default return false()". Expected " ", "(:", "\n", "\r", "\t", or "function" but "f" found. typeswitch ( [Error is around here]fn:error() ) case xs:integer return true() default return false(), AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'XPST0003: Unable to parse: "typeswitch ( fn:error() ) case xs:integer return true() default return false()".\nExpected " ", "(:", "\\n", "\\r", "\\t", or "function" but "f" found.\ntypeswitch ( [Error is around here]fn:error() ) case xs:integer return true() default return false()'.
-cbcl-error-028,AssertionError: Expected executing the XPath "declare function local:item() { if (current-date() lt xs:date('2012-10-10')) then 1 else "one" }; empty( typeswitch ( local:item() ) case xs:integer return fn:error() default return ())" to resolve to one of the expected results, but got Error: XPST0003: Unable to parse: "declare function local:item() { if (current-date() lt xs:date('2012-10-10')) then 1 else "one" }; empty( typeswitch ( local:item() ) case xs:integer return fn:error() default return ())". Expected " ", "(:", "\n", "\r", "\t", or "function" but "l" found. declare function local:item() { if (current-date() lt xs:date('2012-10-10')) then 1 else "one" }; empty( typeswitch ( [Error is around here]local:item() ) case xs:integer return fn:error() default return ()), AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'XPST0003: Unable to parse: "declare function local:item() { if (current-date() lt xs:date(\'2012-10-10\')) then 1 else "one" }; empty( typeswitch ( local:item() ) case xs:integer return fn:error() default return ())".\nExpected " ", "(:", "\\n", "\\r", "\\t", or "function" but "l" found.\ndeclare function local:item() { if (current-date() lt xs:date(\'2012-10-10\')) then 1 else "one" }; empty( typeswitch ( [Error is around here]local:item() ) case xs:integer return fn:error() default return ())'.
-cbcl-error-029,Error: XPST0003: Unable to parse: "declare function local:item() { if (current-date() gt xs:date('1900-01-01')) then 1 else "one" }; empty( typeswitch ( local:item() ) case xs:integer return () default return fn:error())". Expected " ", "(:", "\n", "\r", "\t", or "function" but "l" found. declare function local:item() { if (current-date() gt xs:date('1900-01-01')) then 1 else "one" }; empty( typeswitch ( [Error is around here]local:item() ) case xs:integer return () default return fn:error())
-cbcl-error-035,AssertionError: Expected executing the XPath "empty( fn:error() treat as empty-sequence() )" to resolve to one of the expected results, but got Error: No selector counterpart for: treatExpr., AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'No selector counterpart for: treatExpr.'.
-K-SeqExactlyOneFunc-6,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-SeqExactlyOneFunc-7,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-SeqExactlyOneFunc-8,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-fn-function-lookup-026,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-SeqOneOrMoreFunc-7,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-SeqRemoveFunc-13,AssertionError: Expected executing the XPath "remove(error(), 1)" to resolve to one of the expected results, but got AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined', AssertionError: expected [Function] to throw error matching /XPST0005/ but got 'Cannot read property \'isEmpty\' of undefined'.
-K-SeqReverseFunc-15,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-SeqSubsequenceFunc-30,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-SeqUnorderedFunc-8,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-SeqZeroOrOneFunc-7,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-xs-error-017,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-xs-error-021,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-xs-error-023,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-xs-error-024,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-xs-error-036,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-xs-error-047,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'No selector counterpart for: treatExpr.'
-K-NumericAdd-31,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-NumericAdd-32,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-NumericAdd-33,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-NumericAdd-34,AssertionError: Expected executing the XPath "(4, error()) + 3" to resolve to one of the expected results, but got AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined', AssertionError: expected [Function] to throw error matching /XPTY0004/ but got 'Cannot read property \'isEmpty\' of undefined'.
-K-NumericAdd-35,AssertionError: Expected executing the XPath "3 + (4, error())" to resolve to one of the expected results, but got AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined', AssertionError: expected [Function] to throw error matching /XPTY0004/ but got 'Cannot read property \'isEmpty\' of undefined'.
-K-NumericAdd-36,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-NumericAdd-41,AssertionError: Expected executing the XPath "error() + 3" to resolve to one of the expected results, but got AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined', AssertionError: expected [Function] to throw error matching /XPST0005/ but got 'Cannot read property \'isEmpty\' of undefined'.
-K-NumericAdd-42,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-FunctionProlog-52,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-FunctionProlog-65,AssertionError: Expected executing the XPath "         declare function local:myFunction() as empty-sequence() { fn:error() };         QName("http://example.com/ANamespace", local:myFunction())" to resolve to one of the expected results, but got AssertionError: expected [Function] to throw error matching /XPTY0004/ but got 'Cannot read property \'isEmpty\' of undefined', AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'.
-K-FunctionProlog-66,AssertionError: Expected executing the XPath "         declare function local:myFunction() { fn:error() };         QName("http://example.com/ANamespace", local:myFunction())" to resolve to one of the expected results, but got AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined', AssertionError: expected [Function] to throw error matching /XPTY0004/ but got 'Cannot read property \'isEmpty\' of undefined'.
-K-GenCompEq-16,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-GenCompEq-17,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-GenCompEq-18,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-GenCompEq-19,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-SeqExprInstanceOf-52,AssertionError: expected [Function] to throw error matching /XPST0051/ but got 'Cannot read property \'variety\' of undefined'
-K-SeqExprInstanceOf-58,AssertionError: Expected executing the XPath "error() instance of empty-sequence()" to resolve to one of the expected results, but got Error: No selector counterpart for: voidSequenceType., AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'No selector counterpart for: voidSequenceType.'.
-K-SeqExprInstanceOf-59,AssertionError: Expected executing the XPath "(error(), 1) instance of empty-sequence()" to resolve to one of the expected results, but got Error: No selector counterpart for: voidSequenceType., AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'No selector counterpart for: voidSequenceType.'.
-K-SeqExprInstanceOf-60,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-SeqExprInstanceOf-61,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-function-literal-026,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-ValCompTypeChecking-35,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-ValCompTypeChecking-36,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-ValCompTypeChecking-37,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-ValCompTypeChecking-38,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-ValCompTypeChecking-39,AssertionError: Expected executing the XPath "3 eq (3, error())" to resolve to one of the expected results, but got AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined', AssertionError: expected [Function] to throw error matching /XPTY0004/ but got 'Cannot read property \'isEmpty\' of undefined'.
-K-ValCompTypeChecking-40,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-K-ValCompTypeChecking-41,AssertionError: Expected executing the XPath "(3, error()) eq 3" to resolve to one of the expected results, but got AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined', AssertionError: expected [Function] to throw error matching /XPTY0004/ but got 'Cannot read property \'isEmpty\' of undefined'.
-FOER0000,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-XPTY0004_12a,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
-fo-test-fn-error-001,AssertionError: expected [Function] to throw error matching /FOER0000/ but got 'Cannot read property \'isEmpty\' of undefined'
